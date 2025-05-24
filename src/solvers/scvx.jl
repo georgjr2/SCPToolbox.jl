@@ -728,7 +728,8 @@ function check_stopping_criterion!(spbm::Subproblem)::Bool
 
     # Compute stopping criterion
     stop =
-        (spbm.iter > 1 && (sol.feas && (pre_improv_rel <= ε_rel || sol.deviation <= ε_abs)))
+        (spbm.iter > 1 && 
+        (sol.feas && (abs(pre_improv_rel) <= ε_rel || sol.deviation <= ε_abs)))
 
     return stop
 end
